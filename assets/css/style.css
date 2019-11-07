@@ -1,0 +1,34 @@
+body {
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    padding: 40px;
+    
+}
+
+.container {
+    background-color: #e9f5ff;
+    min-height: 900px;
+    margin-top: 40px;
+    text-align: center;
+    
+}
+
+.row {
+   
+}
+
+.timer {
+
+}
+
+.section_1 {
+
+}
+
+.section_2 {
+
+}
