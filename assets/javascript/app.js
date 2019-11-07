@@ -1,16 +1,16 @@
+//TODO: get the countdown working and "out of time" display code
+
 $(document).ready(function () {
 
     var trivia = [{ q: "What color is the sky?", 1: "yellow", 2: "blue", 3: "orange", 4: "green", ans: "2" },
                   { q: "What color is the ocean?", 1: "yellow", 2: "red", 3: "orange", 4: "blue", ans: "4" }];
     var index = 0;
-    var guess;
     var wins = 0;
 
     game();
 
-   
-
     function answerButtons() {
+        var guess;
         for (var i = 1; i < 5; i++) {
             $(".section_2").append(
                 $("<button/>", {
@@ -19,17 +19,15 @@ $(document).ready(function () {
                     value: i,
                     click: function () {
                         guess = $(this).val();
-                        checkCorrect(guess);
+                        checkAnswer(guess);
                     }
                 }), "<br/>"
             )
         }
     }
     
-
-    function checkCorrect(g) {
+    function checkAnswer(g) {
         var answer = trivia[index].ans;
-        var text = $("#btn_" + answer).text();
         if (g == answer) {
             wins++;
             $(".section_1").html("Correct!!");
@@ -37,23 +35,44 @@ $(document).ready(function () {
 
         } else {
             $(".section_1").html("Nope!!");
-            $(".section_2").html("The correct answer was " + text);
+            $(".section_2").html("The correct answer was " + $("#btn_" + answer).text());
         }    
         index++;
-        setTimeout( function () {
-            game();
-        } , 3000 )
+        setTimeout(game, 2000);
     }
 
     function game(){
         if (index < trivia.length){
+            countdown();
             $(".section_1").text(trivia[index].q);  
+            $(".section_2").text("");
             answerButtons();
         } else {
-            $(".section_1").html("You won " + wins + " games out of " + trivia.length);
-            $(".section_2").html("");  
-        }
+            $(".section_1").html("You got " + wins + " out of " + trivia.length + " questions correct!");
+            $(".section_2").html("Good Job! <br/>");
+            $(".section_2").append(
+                $("<button/>", {
+                    text: "Restart",
+                    id: "restartBtn",
+                    click: function () {
+                        reset();
+                    }
+                })
+            )
+        }      
+    }
+
+    function countdown() {
+        //display countdown using intervals of 30 sec with function that displays an out of time message
+        //and then calls game()
         
+    }
+
+    function reset(){
+        wins = 0;
+        index = 0;
+        game();
+
     }
 
 });
