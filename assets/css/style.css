@@ -1,5 +1,5 @@
 body {
-    background-image: url("../images/bg.jpg");
+    background-image: url("../images/p.jfif");
     background-size: cover;
     font-size: 22pt;
 }
@@ -17,10 +17,11 @@ button {
 }
 
 .container {
-    background-color: #e9f5ff;
-    min-height: 900px;
+    background-color: #c0f8f8;
+    min-height: 650px;
     margin-top: 40px;
     text-align: center;
+    width: 800px;
     
 }
 

@@ -6,6 +6,8 @@ $(document).ready(function () {
                   { q: "What color is the ocean?", 1: "yellow", 2: "red", 3: "orange", 4: "blue", ans: "4" }];
     var index = 0;
     var wins = 0;
+    var n;
+    var timer;
 
     game();
 
@@ -27,6 +29,7 @@ $(document).ready(function () {
     }
     
     function checkAnswer(g) {
+        clearTimeout(timer);
         var answer = trivia[index].ans;
         if (g == answer) {
             wins++;
@@ -42,12 +45,14 @@ $(document).ready(function () {
     }
 
     function game(){
+        n = 5;
         if (index < trivia.length){
             countdown();
             $(".section_1").text(trivia[index].q);  
             $(".section_2").text("");
             answerButtons();
         } else {
+            $(".timer").text("")
             $(".section_1").html("You got " + wins + " out of " + trivia.length + " questions correct!");
             $(".section_2").html("Good Job! <br/>");
             $(".section_2").append(
@@ -63,9 +68,24 @@ $(document).ready(function () {
     }
 
     function countdown() {
-        //display countdown using intervals of 30 sec with function that displays an out of time message
-        //and then calls game()
-        
+        $(".timer").text("Time remaining: " + n + " seconds.")
+        timer = setTimeout(() => {
+            countdownHelper(n)
+        }, 1000)
+
+    }
+
+    function countdownHelper(){
+        n--       
+        if (n > 0){
+            countdown();
+        } else {
+            $(".timer").text("Time remaining: 0 seconds.");
+            $(".section_1").text("Out of time!");
+            $(".section_2").text("");
+            index++;
+            setTimeout(game, 2000);
+        }
     }
 
     function reset(){
