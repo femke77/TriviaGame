@@ -1,4 +1,8 @@
-//TODO: get the countdown working and "out of time" display code
+//TODO: get the start page working
+//      add the quiz
+//      finish the styling, add images
+//      make the finish page more detailed with correct, incorrect, out of time tallies
+//      make all the times correct, 4-5 seconds btwn and 30 sec for answers
 
 $(document).ready(function () {
 
@@ -9,7 +13,21 @@ $(document).ready(function () {
     var n;
     var timer;
 
-    game();
+    startPage();
+
+    function startPage(){
+        $(".timer").html("")
+        $(".section_1").html("Ready to play?")
+        $(".section_2").html(
+            $("<button/>" , {
+                text: "Start Play",
+                click: function() {
+                    game();
+                }
+            }
+        ))
+
+    }
 
     function answerButtons() {
         var guess;
@@ -28,10 +46,10 @@ $(document).ready(function () {
         }
     }
     
-    function checkAnswer(g) {
+    function checkAnswer(guess) {
         clearTimeout(timer);
         var answer = trivia[index].ans;
-        if (g == answer) {
+        if (guess== answer) {
             wins++;
             $(".section_1").html("Correct!!");
             $(".section_2").html("");  //image here later
@@ -72,7 +90,6 @@ $(document).ready(function () {
         timer = setTimeout(() => {
             countdownHelper(n)
         }, 1000)
-
     }
 
     function countdownHelper(){
