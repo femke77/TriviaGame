@@ -1,7 +1,4 @@
-//TODO: 
 
-
-//      make all the times correct, 4-5 seconds btwn and 30 sec for answers
 
 $(document).ready(function () {
 
@@ -59,10 +56,10 @@ $(document).ready(function () {
     
     function checkAnswer(guess) {
         var answer = trivia[index].ans;
-        if (guess== answer) {
+        if (guess == answer) {
             wins++;
             $(".section_1").html("Correct!!");
-            $(".section_2").html("<img src=" + trivia[index].img + " alt='seinfeld image' />");  //image here later
+            $(".section_2").html("<img src=" + trivia[index].img + " alt='seinfeld image' />");  
 
         } else {
             losses++;
@@ -92,7 +89,7 @@ $(document).ready(function () {
                     id: "restartBtn",
                     click: reset
                 })
-            )
+            );
         }
     }
 
@@ -114,7 +111,7 @@ $(document).ready(function () {
             $(".section_2").html("<img src=" + trivia[index].img + " alt='seinfeld image' />");
             timeOuts++;
             index++;
-            setTimeout(game, 2000);
+            setTimeout(game, 3000);
         }
     }
 
