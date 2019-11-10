@@ -1,13 +1,13 @@
 body {
     background-image: url("../images/p.jfif");
     background-size: cover;
-    font-size: 22pt;
+    font-size: 20pt;
 }
 
 h1 {
     text-align: center;
-    padding: 40px;
-    font-size: 40pt;
+    padding: 20px;
+    font-size: 35pt;
     
 }
 
@@ -19,7 +19,7 @@ button {
 
 .container {
     background-color: #c0f8f8;
-    min-height: 650px;
+    min-height: 700px;
     margin-top: 40px;
     text-align: center;
     width: 800px;
@@ -28,7 +28,7 @@ button {
 }
 
 .row {
-    margin: 30px;
+    margin: 20px;
    
 }
 
