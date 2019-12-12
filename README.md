@@ -2,6 +2,8 @@
 
 A web-based 10 question trivia game on the TV show Seinfeld. 
 
+https://femke77.github.io/TriviaGame/
+
 ## Tech/Framework
 
 Built with JavaScript and JQuery and styled with Bootstrap/CSS. 
